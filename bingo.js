@@ -1,3 +1,4 @@
+console.log(document.getElementById('chartArea'));
 let width = 850,
     height = 1100;
 
@@ -10,10 +11,11 @@ let gridScale = d3.scaleLinear()
     .range([0, gridWidth]);
 
 
-let svg = d3.select('body')
+let svg = d3.select('#chartArea')
     .append('svg')
-    .attr('width', width)
-    .attr('height', height);
+    .attr('preserveAspectRation', 'xMinYMin meet')
+    .attr('viewBox', '0 0 850 1100')
+    .classed('svg-content-response', true);
 
 svg.append('svg:image')
     .attr('xlink:href', 'board.png')
@@ -30,6 +32,8 @@ for (let x = 0; x < 5; x++) {
         svg.append('svg:image')
             .attr('xlink:href', demandPath)
             .attr('x', gridX + gridScale(x))
-            .attr('y', gridY + gridScale(y));
+            .attr('y', gridY + gridScale(y))
+            .attr('width', gridScale(1))
+            .attr('height', gridScale(1));
     }
 }
