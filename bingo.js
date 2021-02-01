@@ -24,10 +24,14 @@ svg.append('svg:image')
 
 
 const numEntries = 91;
+let paths = [];
+for (let i = 0; i < numEntries; i++) {
+    paths.push(`squares/bingo_squares${i}.png`)
+}
 for (let x = 0; x < 5; x++) {
     for (let y = 0; y < 5; y++) {
-        const demandNum = Math.floor(Math.random() * numEntries);
-        const demandPath = `squares/bingo_squares${demandNum}.png`;
+        const demandNum = Math.floor(Math.random() * paths.length);
+        const demandPath = paths.splice(demandNum, 1);
 
         svg.append('svg:image')
             .attr('xlink:href', demandPath)
