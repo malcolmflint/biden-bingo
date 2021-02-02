@@ -13,12 +13,13 @@ let gridScale = d3.scaleLinear()
 
 let svg = d3.select('#chartArea')
     .append('svg')
+    .attr('id', 'card')
     .attr('preserveAspectRation', 'xMinYMin meet')
     .attr('viewBox', '0 0 850 1100')
     .classed('svg-content-response', true);
 
 svg.append('svg:image')
-    .attr('xlink:href', 'board.png')
+    .attr('xlink:href', 'static/board.png')
     .attr('width', width)
     .attr('height', height);
 
@@ -26,7 +27,7 @@ svg.append('svg:image')
 const numEntries = 91;
 let paths = [];
 for (let i = 0; i < numEntries; i++) {
-    paths.push(`squares/bingo_squares${i}.png`)
+    paths.push(`static/squares/bingo_squares${i}.png`)
 }
 for (let x = 0; x < 5; x++) {
     for (let y = 0; y < 5; y++) {
@@ -41,3 +42,7 @@ for (let x = 0; x < 5; x++) {
             .attr('height', gridScale(1));
     }
 }
+
+d3.select('#downloadButton').on('click', function () {
+    saveSvgAsPng(document.getElementById('card'), 'bingoCard.png');
+});
