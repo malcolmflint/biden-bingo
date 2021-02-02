@@ -15,8 +15,7 @@ let svg = d3.select('#chartArea')
     .append('svg')
     .attr('id', 'card')
     .attr('preserveAspectRation', 'xMinYMin meet')
-    .attr('viewBox', '0 0 850 1100')
-    .classed('svg-content-response', true);
+    .attr('viewBox', '0 0 850 1100');
 
 svg.append('svg:image')
     .attr('xlink:href', 'static/board.png')

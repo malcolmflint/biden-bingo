@@ -1,6 +1,5 @@
-.svg-content-responsive {
-    display: inline-block;
-    position: absolute;
-    top: 0;
-    left: 0;
+body {
+    font-family: 'Source Sans Pro', 'sans-serif';
+    color: #FFDE16;
+    background-color: #33342E;
 }
